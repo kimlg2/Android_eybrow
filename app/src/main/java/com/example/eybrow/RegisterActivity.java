@@ -32,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
     private String userMajor;
     private String userEmail;
     private AlertDialog dialog;
+    private String str;
     private boolean validate = false; //사용할수있는 회원 아이디인지 체크 변수
 
     @Override

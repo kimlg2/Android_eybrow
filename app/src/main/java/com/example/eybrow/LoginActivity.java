@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         Btn_IDPWfind = (TextView)findViewById(R.id.Btn_IDPWfind);
 
 
+
         Btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,12 +51,14 @@ public class LoginActivity extends AppCompatActivity {
                 String userID = idText.getText().toString();
                 String userPassword = passwordText.getText().toString();
 
+
                 Response.Listener<String> responseLister = new Response.Listener<String>(){
 
                     @Override
                     public void onResponse(String response) {
                         try {
                             JSONObject jsonResponse = new JSONObject(response); //해당 결과값
+
                             boolean success = jsonResponse.getBoolean("success");
                             if(success){
                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
@@ -64,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                                        .create();
                                dialog.show();
                                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                                intent.putExtra("userID",userID);
                                 LoginActivity.this.startActivity(intent);
                                 finish();
                             }//로그인 성공
@@ -84,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(loginRequest);
             }
+
         });
         Btn_IDPWfind.setOnClickListener(new View.OnClickListener() {
             @Override
