@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView text;
-    private String username;
+    private TextView text1;
+    private String userID;
     private Button Btn_logout;
 
     @Override
@@ -18,13 +18,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Btn_logout = (Button) findViewById(R.id.Btn_logout);
-        text = (TextView) findViewById(R.id.text);
+        text1 = (TextView) findViewById(R.id.text1);
 
 
         Intent intent = getIntent();
         String userID = intent.getStringExtra("userID");
 
-        text.setText(userID);
+        text1.setText(userID);
 
     }
 }

@@ -24,7 +24,6 @@ public class LoginActivity extends AppCompatActivity {
     private AlertDialog dialog;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +49,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String userID = idText.getText().toString();
                 String userPassword = passwordText.getText().toString();
-
-
                 Response.Listener<String> responseLister = new Response.Listener<String>(){
 
                     @Override
@@ -67,7 +64,8 @@ public class LoginActivity extends AppCompatActivity {
                                        .create();
                                dialog.show();
                                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                                intent.putExtra("userID",userID);
+                                intent.putExtra("userID", userID);
+                                startActivity(intent);
                                 LoginActivity.this.startActivity(intent);
                                 finish();
                             }//로그인 성공
@@ -90,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         });
+
         Btn_IDPWfind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,8 +96,6 @@ public class LoginActivity extends AppCompatActivity {
                 LoginActivity.this.startActivity(idpwintent);
             }
         });
-
-
 
     }
     @Override

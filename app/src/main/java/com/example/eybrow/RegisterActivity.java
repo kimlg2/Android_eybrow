@@ -3,6 +3,7 @@ package com.example.eybrow;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -157,6 +158,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 dialog = builder.setMessage("회원 등록에 성공")
                                         .setPositiveButton("확인",null)
                                         .create();
+
                                 dialog.show();
                                 finish();
                               }
