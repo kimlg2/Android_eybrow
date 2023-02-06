@@ -67,6 +67,10 @@
                 android:drawableLeft="@drawable/ic_baseline_https_24"
                 android:layout_marginTop="10dp"
                 android:background="@color/black"/>
+            <TextView
+                android:id="@+id/nameText"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
             <Button
                 android:id="@+id/Btn_login"
                 android:layout_width="280dp"
@@ -89,7 +93,6 @@
                     android:id="@+id/Btn_IDPWfind"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-
                     android:layout_gravity="center"
                     android:layout_marginLeft="73dp"
                     android:layout_marginTop="2dp"

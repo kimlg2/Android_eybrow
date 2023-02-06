@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -20,7 +21,7 @@ import org.json.JSONObject;
 public class LoginActivity extends AppCompatActivity {
     EditText idText, passwordText;
     Button Btn_login;
-    TextView Btn_register,Btn_IDPWfind;
+    TextView Btn_register,Btn_IDPWfind,nameText;
     private AlertDialog dialog;
 
 
@@ -31,12 +32,14 @@ public class LoginActivity extends AppCompatActivity {
 
         idText = (EditText) findViewById(R.id.idText);
         passwordText = (EditText) findViewById(R.id.passwordText);
+        nameText = (TextView) findViewById(R.id.nameText);
         Btn_login = (Button) findViewById(R.id.Btn_login);
         Btn_register = (TextView)findViewById(R.id.Btn_register);
         Btn_IDPWfind = (TextView)findViewById(R.id.Btn_IDPWfind);
 
 
-
+        Intent intent = new Intent(this,LodingActivity.class);
+        startActivity(intent);
         Btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String userID = idText.getText().toString();
                 String userPassword = passwordText.getText().toString();
+
                 Response.Listener<String> responseLister = new Response.Listener<String>(){
 
                     @Override
@@ -58,23 +62,29 @@ public class LoginActivity extends AppCompatActivity {
 
                             boolean success = jsonResponse.getBoolean("success");
                             if(success){
-                               AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                               dialog = builder.setMessage("로그인 성공")
-                                       .setPositiveButton("확인",null)
-                                       .create();
-                               dialog.show();
+
+
+//                               AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+//                               dialog = builder.setMessage("로그인 성공")
+//                                       .setPositiveButton("확인",null)
+//                                       .create();
+//                               dialog.show();
+                                Toast.makeText( getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT ).show();
                                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                                 intent.putExtra("userID", userID);
+
                                 startActivity(intent);
-                                LoginActivity.this.startActivity(intent);
+//                                LoginActivity.this.startActivity(intent);
                                 finish();
                             }//로그인 성공
                             else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                dialog = builder.setMessage("계정을 다시 확인해주세요.")
-                                        .setNegativeButton("다시시도",null)
-                                        .create();
-                                    dialog.show();
+//                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+//                                dialog = builder.setMessage("계정을 다시 확인해주세요.")
+//                                        .setNegativeButton("다시시도",null)
+//                                        .create();
+//                                    dialog.show();
+                                Toast.makeText( getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT ).show();
+                                return;
                             } //로그인을 실패시
                         }
                        catch (Exception e) {
@@ -106,4 +116,5 @@ public class LoginActivity extends AppCompatActivity {
             dialog = null;
         }
     } //함부로 종료되지 않게 해주는것
+
 }

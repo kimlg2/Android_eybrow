@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Eybrow">
         <activity
+            android:name=".LodingActivity"
+            android:exported="false" />
+        <activity
             android:name=".IDPWfindActivity"
             android:exported="false" />
         <activity
