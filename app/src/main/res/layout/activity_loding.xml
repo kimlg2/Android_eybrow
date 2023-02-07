@@ -8,16 +8,16 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/loding"
+        android:layout_width="160dp"
+        android:layout_height="120dp"
+        android:src="@drawable/logo"
         android:layout_gravity="center"
-        android:layout_marginTop="310dp"/>
+        android:layout_marginTop="230dp"/>
 
     <ProgressBar
         android:id="@+id/loding"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_gravity="center"
         android:progress="50"
         android:indeterminateTint="@color/black"
