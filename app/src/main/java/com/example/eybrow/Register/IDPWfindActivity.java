@@ -1,8 +1,10 @@
-package com.example.eybrow;
+package com.example.eybrow.Register;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.eybrow.R;
 
 public class IDPWfindActivity extends AppCompatActivity {
 

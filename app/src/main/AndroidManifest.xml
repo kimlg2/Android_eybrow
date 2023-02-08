@@ -15,16 +15,16 @@
             android:name=".LodingActivity"
             android:exported="false" />
         <activity
-            android:name=".IDPWfindActivity"
+            android:name=".Register.IDPWfindActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".Register.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Register.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

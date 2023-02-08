@@ -1,4 +1,4 @@
-package com.example.eybrow;
+package com.example.eybrow.Register;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,9 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.eybrow.LodingActivity;
+import com.example.eybrow.MainActivity;
+import com.example.eybrow.R;
 import com.example.eybrow.server.LoginRequest;
 
 import org.json.JSONObject;
@@ -38,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         Btn_IDPWfind = (TextView)findViewById(R.id.Btn_IDPWfind);
 
 
-        Intent intent = new Intent(this,LodingActivity.class);
+        Intent intent = new Intent(this, LodingActivity.class);
         startActivity(intent);
         Btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
 //                                       .create();
 //                               dialog.show();
                                 Toast.makeText( getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT ).show();
-                                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.putExtra("userID", userID);
 
                                 startActivity(intent);
