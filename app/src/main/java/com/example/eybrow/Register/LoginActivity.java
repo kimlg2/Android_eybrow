@@ -42,7 +42,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
         Intent intent = new Intent(this, LodingActivity.class);
-        startActivity(intent);
+        startActivity(intent); //로딩
+
         Btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
                 LoginActivity.this.startActivity(registerIntent);
             }
         });
+
         Btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +77,6 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText( getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT ).show();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.putExtra("userID", userID);
-
                                 startActivity(intent);
 //                                LoginActivity.this.startActivity(intent);
                                 finish();

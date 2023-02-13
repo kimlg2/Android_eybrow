@@ -48,7 +48,7 @@
                 android:padding="10dp"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff"
-                android:id="@+id/idname"
+                android:id="@+id/id_name"
                 android:layout_marginTop="30dp"
                 android:drawableStart="@drawable/ic_baseline_person_24"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
@@ -61,7 +61,7 @@
                 android:padding="10dp"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff"
-                android:id="@+id/idpassword"
+                android:id="@+id/id_password"
                 android:layout_marginTop="15dp"
                 android:drawableStart="@drawable/ic_baseline_https_24"
                 android:drawableLeft="@drawable/ic_baseline_https_24"
@@ -80,7 +80,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="15dp"
+                    android:textSize="30dp"
                     android:id="@+id/id_id"/>
 
 

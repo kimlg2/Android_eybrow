@@ -22,6 +22,7 @@ public class RegisterRequest extends StringRequest {
     }
     @Override
     public Map<String, String> getParams() {
+
         return parameters;
     }
 } //해당 php 정보를 보내서 회원가입 시켜주는 코드
