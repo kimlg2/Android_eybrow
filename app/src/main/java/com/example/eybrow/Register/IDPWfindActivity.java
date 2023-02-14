@@ -57,13 +57,13 @@ public class IDPWfindActivity extends AppCompatActivity {
 
                             boolean success = jsonResponse.getBoolean("success");
                             if(success){
-                                String userID = jsonResponse.getString("userID");
-                                Intent intent = getIntent();
-                                id_id.setText(userID);
-                                intent.putExtra("userID", userID);
-                                id_id.setText(userID);
-                                id_id.setText(userID.toString()+"입니다.");
-                                startActivity(intent);
+//                                String userID = jsonResponse.getString("userID");
+//                                Intent intent = getIntent();
+//                                id_id.setText(userID);
+//                                intent.putExtra("userID", userID);
+//                                id_id.setText(userID);
+//                                id_id.setText(userID.toString()+"입니다.");
+//                                startActivity(intent);
 
                                 finish();
 
