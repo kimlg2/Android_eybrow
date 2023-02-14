@@ -44,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LodingActivity.class);
         startActivity(intent); //로딩
 
+
         Btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,9 +58,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String userID = idText.getText().toString();
                 String userPassword = passwordText.getText().toString();
-//                String username = idText.getText().toString();
 
-
+                String username;
+                username = "";
 
                         Response.Listener<String> responseLister = new Response.Listener<String>(){
 
@@ -70,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             boolean success = jsonResponse.getBoolean("success");
                             if(success){
-                                String username = jsonResponse.getString( "userName" );
+                                String username = jsonResponse.getString("username");
 
 //                               AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
 //                               dialog = builder.setMessage("로그인 성공")

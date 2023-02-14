@@ -67,10 +67,10 @@
                 android:drawableLeft="@drawable/ic_baseline_https_24"
                 android:layout_marginTop="10dp"
                 android:background="@color/black"/>
-            <TextView
-                android:id="@+id/nameText"
-                android:layout_width="0dp"
-                android:layout_height="0dp"/>
+<!--            <TextView-->
+<!--                android:id="@+id/nameText"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="0dp"/>-->
             <Button
                 android:id="@+id/Btn_login"
                 android:layout_width="280dp"

@@ -38,27 +38,35 @@ public class IDPWfindActivity extends AppCompatActivity {
         pwd_id = (EditText) findViewById(R.id.pwd_id);
         pwd_name = (EditText) findViewById(R.id.pwd_name);
         id_id = (TextView) findViewById(R.id.id_id);
+        Intent intent = getIntent();
+        String userID = intent.getStringExtra("userID");
 
         id_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String username = id_name.getText().toString();
                 String userPassword = id_password.getText().toString();
-                String userID = id_id.getText().toString();
+               String userID;
+               userID = "";
                 Response.Listener<String> responseLister = new Response.Listener<String>(){
                     @Override
                     public void onResponse(String response) {
                         try {
+
                             JSONObject jsonResponse = new JSONObject(response); //해당 결과값
 
                             boolean success = jsonResponse.getBoolean("success");
                             if(success){
+                                String userID = jsonResponse.getString("userID");
                                 Intent intent = getIntent();
-                                String userID = intent.getStringExtra("userID");
                                 id_id.setText(userID);
                                 intent.putExtra("userID", userID);
+                                id_id.setText(userID);
                                 id_id.setText(userID.toString()+"입니다.");
                                 startActivity(intent);
+
+                                finish();
+
                             }//아이디 찾기 성공
                             else {
                                 Toast.makeText( getApplicationContext(), "이름와 비밀번호를 다시확인..", Toast.LENGTH_SHORT ).show();
@@ -70,6 +78,9 @@ public class IDPWfindActivity extends AppCompatActivity {
                         }
                     }
                 };//결과를 받아오는 코드
+                IDPWfindRequest idpWfindRequest = new IDPWfindRequest(userID,userPassword,username,responseLister);
+                RequestQueue queue = Volley.newRequestQueue(IDPWfindActivity.this);
+                queue.add(idpWfindRequest);
             }
         });
 
