@@ -57,8 +57,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String userID = idText.getText().toString();
                 String userPassword = passwordText.getText().toString();
+//                String username = idText.getText().toString();
 
-                Response.Listener<String> responseLister = new Response.Listener<String>(){
+
+
+                        Response.Listener<String> responseLister = new Response.Listener<String>(){
 
                     @Override
                     public void onResponse(String response) {
@@ -67,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             boolean success = jsonResponse.getBoolean("success");
                             if(success){
-
+                                String username = jsonResponse.getString( "userName" );
 
 //                               AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
 //                               dialog = builder.setMessage("로그인 성공")
@@ -76,17 +79,17 @@ public class LoginActivity extends AppCompatActivity {
 //                               dialog.show();
                                 Toast.makeText( getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT ).show();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                intent.putExtra("userID", userID);
+                                intent.putExtra("username", username);
                                 startActivity(intent);
 //                                LoginActivity.this.startActivity(intent);
                                 finish();
                             }//로그인 성공
                             else {
 //                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-//                                dialog = builder.setMessage("계정을 다시 확인해주세요.")
+//                                dialog = builder.setMge("계정을 다시 확인해주세요.")
 //                                        .setNegativeButton("다시시도",null)
 //                                        .create();
-//                                    dialog.show();
+//                                    dialog.show();essa
                                 Toast.makeText( getApplicationContext(), "로그인 실패", Toast.LENGTH_SHORT ).show();
                                 return;
                             } //로그인을 실패시
@@ -96,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 };//결과를 받아오는 코드
-                LoginRequest loginRequest = new LoginRequest(userID,userPassword,responseLister);
+                LoginRequest loginRequest = new LoginRequest(userID,userPassword,username,responseLister);
                 RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
                 queue.add(loginRequest);
             }

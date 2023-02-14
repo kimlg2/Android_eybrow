@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        String userID = intent.getStringExtra("userID");
+        String username = intent.getStringExtra("username");
 
 
         Btn_logout.setOnClickListener(new View.OnClickListener() {
@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText( getApplicationContext(), "로그아웃", Toast.LENGTH_SHORT ).show();
             }
         });
-        text1.setText(userID);
-        text1.setText(userID.toString()+"님 환영합니다!!");
+        text1.setText(username);
+        text1.setText(username.toString()+"님 환영합니다!!");
 
     }
 }

@@ -70,9 +70,6 @@ public class IDPWfindActivity extends AppCompatActivity {
                         }
                     }
                 };//결과를 받아오는 코드
-                IDPWfindRequest IDPWfindRequest = new IDPWfindRequest(userID,userPassword,username,responseLister);
-                RequestQueue queue = Volley.newRequestQueue(IDPWfindActivity.this);
-                queue.add(IDPWfindRequest);
             }
         });
 
