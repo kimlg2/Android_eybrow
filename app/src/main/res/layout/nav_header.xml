@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include  layout="@layout/toolbar_main"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/Btn_logout"
+        android:layout_width="90dp"
+        android:layout_height="40dp"
+        android:layout_gravity="left"
+        android:background="@color/black"
+        android:text="로그아웃"
+        android:textColor="#ffffff"
+        android:textSize="15dp" />
+
 
 </LinearLayout>

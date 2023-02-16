@@ -8,11 +8,11 @@
 
     <item
         android:id="@+id/nav_menu2"
-        android:title="menu1"
+        android:title="menu2"
         app:showAsAction="never"/>
 
     <item
         android:id="@+id/nav_menu3"
-        android:title="menu1"
+        android:title="menu3"
         app:showAsAction="never"/>
 </menu>
