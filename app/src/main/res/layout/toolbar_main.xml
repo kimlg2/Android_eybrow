@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.Toolbar andxmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout andxmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="50dp"
     andxmlns:contentInsetStart="0dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:andxmlns="http://schemas.android.com/apk/res-auto"
     android:background="@color/black">
+
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"></androidx.appcompat.widget.Toolbar>
 
         <ImageView
             android:id="@+id/iv_menu"
@@ -39,4 +48,4 @@
 
     </RelativeLayout>
 
-</androidx.appcompat.widget.Toolbar>
+</LinearLayout>

@@ -5,23 +5,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+   android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <include  layout="@layout/toolbar_main" />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start|left"
-        app:headerLayout="@layout/header"
-        app:menu="@menu/nav_menus" />
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/header"/>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <include  layout="@layout/toolbar_main"/>
-    </LinearLayout>
+
+
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

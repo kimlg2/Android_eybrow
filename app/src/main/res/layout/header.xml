@@ -3,7 +3,7 @@
     android:id="@+id/drawer"
     android:orientation="vertical"
     android:layout_gravity="start"
-    android:background="@color/black"
+    android:background="@color/white"
     android:layout_width="240dp"
     android:layout_height="match_parent"
     android:weightSum="2560">
@@ -44,7 +44,7 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="260"
+        android:layout_weight="290"
         android:background="@color/white">
 
         <Button
@@ -75,39 +75,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="190">
 
-        <Button
-            android:id="@+id/btnMenuStudent"
-            android:text="학생"
-            android:textColor="@color/white"
-            android:background="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:onClick="onClick"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="190">
-
-        <Button
-            android:id="@+id/btnMenuTeacher"
-            android:text="교직원"
-            android:textColor="@color/white"
-            android:background="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:onClick="onClick"/>
-
-    </LinearLayout>
 
     <LinearLayout
         android:gravity="center"
@@ -151,7 +119,7 @@
 
         <Button
             android:id="@+id/btnMenuQuestion"
-            android:text="Q/A"
+            android:text="게시판"
             android:textColor="@color/white"
             android:background="@color/black"
             android:layout_width="match_parent"
@@ -160,20 +128,14 @@
 
     </LinearLayout>
 
+
     <LinearLayout
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="190">
+        android:layout_weight="260"
+        android:background="@color/white">
 
-        <Button
-            android:id="@+id/btnMenuSetting"
-            android:text="환경설정"
-            android:textColor="@color/white"
-            android:background="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:onClick="onClick"/>
 
     </LinearLayout>
 

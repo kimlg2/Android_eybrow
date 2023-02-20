@@ -1,10 +1,12 @@
 package com.example.eybrow;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
@@ -17,40 +19,38 @@ import com.example.eybrow.Register.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Main_Activity";
-    private TextView text1;
+    private TextView slide_nametext1;
     private String userID;
-    private Button Btn_logout;
+    private Button btnLogout;
     private ImageView iv_menu;
     private DrawerLayout drawerLayout;
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
-        Btn_logout = (Button) findViewById(R.id.Btn_logout);
-        text1 = (TextView) findViewById(R.id.text1);
+        btnLogout = (Button) findViewById(R.id.btnLogout);
+        slide_nametext1 = (TextView) findViewById(R.id.slide_nametext1);
         iv_menu = (ImageView) findViewById(R.id.iv_menu);
         drawerLayout = findViewById(R.id.drawer_layout);
-
+        toolbar= findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
 
         iv_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                text1.setText(username);
-                text1.setText(username.toString()+"님 환영합니다!!");
+                slide_nametext1.setText(username);
+                slide_nametext1.setText(username.toString()+"님 환영합니다!!");
+                Log.d(TAG,"onClick: 클릭됨");
                 drawerLayout.openDrawer(Gravity.LEFT);
             }
         });
-        @Override
-        public boolean onCreateOptionsMenu(Menu menu) {
-            getMenuInflater().inflate(R.menu.nav_menus,menu);
-            return false;
-        }
 
-        Btn_logout.setOnClickListener(new View.OnClickListener() {
+        btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
