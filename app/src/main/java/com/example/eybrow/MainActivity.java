@@ -6,6 +6,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -38,9 +39,17 @@ public class MainActivity extends AppCompatActivity {
         iv_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                text1.setText(username);
+                text1.setText(username.toString()+"님 환영합니다!!");
                 drawerLayout.openDrawer(Gravity.LEFT);
             }
         });
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            getMenuInflater().inflate(R.menu.nav_menus,menu);
+            return false;
+        }
+
         Btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,8 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText( getApplicationContext(), "로그아웃", Toast.LENGTH_SHORT ).show();
             }
         });
-        text1.setText(username);
-        text1.setText(username.toString()+"님 환영합니다!!");
+
 
     }
 }

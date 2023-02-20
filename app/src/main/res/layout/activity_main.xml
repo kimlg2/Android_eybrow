@@ -11,18 +11,16 @@
         android:id="@+id/navigation"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="end|left"
-        app:headerLayout="@layout/nav_header"
-        app:menu="@menu/nav_menus"/>
+        android:layout_gravity="start|left"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/nav_menus" />
+
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-        <include
-            layout="@layout/toolbar_main"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"/>
-
+        <include  layout="@layout/toolbar_main"/>
     </LinearLayout>
 
 
