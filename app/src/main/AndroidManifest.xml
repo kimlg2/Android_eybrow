@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.eybrow" >
+    package="com.example.eybrow">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,12 +10,7 @@
         android:label=""
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Eybrow" >
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.Eybrow.NoActionBar" />
+        android:theme="@style/Theme.Eybrow">
         <activity
             android:name=".LodingActivity"
             android:exported="false" />
@@ -30,7 +25,7 @@
             android:exported="false" />
         <activity
             android:name=".Register.LoginActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
