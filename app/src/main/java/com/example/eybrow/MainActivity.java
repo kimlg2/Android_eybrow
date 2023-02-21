@@ -51,8 +51,26 @@ public class MainActivity extends AppCompatActivity
 
 //        btnLogout = (Button) findViewById(R.id.btnLogout);
         slide_nametext1 = (TextView) findViewById(R.id.slide_nametext1);
-        iv_menu = (ImageView) findViewById(R.id.iv_menu);
+//        iv_menu = (ImageView) findViewById(R.id.iv_menu);
         drawerLayout = findViewById(R.id.drawer_layout);
+//        Intent intent = getIntent();
+//
+//        String username = intent.getStringExtra("username");
+//        slide_nametext1.setText(username.toString() + "님 환영합니다!!");
+//        slide_nametext1.setText(username);
+//
+//        iv_menu.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = getIntent();
+//
+//                String username = intent.getStringExtra("username");
+//                slide_nametext1.setText(username.toString() + "님 환영합니다!!");
+//                slide_nametext1.setText(username);
+//            }
+//
+//        });
+
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -78,6 +96,7 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -88,17 +107,18 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_reservation) {
             Toast.makeText(this, "두번째 메뉴 선택됨.", Toast.LENGTH_LONG).show();
             onFragmentSelected(1, null);
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_board) {
             Toast.makeText(this, "세번째 메뉴 선택됨.", Toast.LENGTH_LONG).show();
             onFragmentSelected(2, null);
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_Favorites) {
             Toast.makeText(this, "네번째 메뉴 선택됨.", Toast.LENGTH_LONG).show();
-            onFragmentSelected(2, null);
+            onFragmentSelected(3, null);
         }
-            DrawerLayout drawer = findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
-            return true;
-        }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
 
     @Override
@@ -114,23 +134,17 @@ public class MainActivity extends AppCompatActivity
         } else if (position == 2) {
             curFragment = fragment3;
             toolbar.setTitle("세번째 화면");
-        }else if (position == 3) {
-            curFragment = fragment3;
+        } else if (position == 3) {
+            curFragment = fragment4;
             toolbar.setTitle("네번째 화면");
-
-        // curFragment 화면으로 변경시킨다.
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
-    }
-
-             Intent intent = getIntent();
-
-             String username = intent.getStringExtra("username");
-
-
-                slide_nametext1.setText(username);
-                slide_nametext1.setText(username.toString()+"님 환영합니다!!");
-
         }
+            // curFragment 화면으로 변경시킨다.
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, curFragment).commit();
+        }
+
+
+
+    }
 
 //        btnLogout.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -142,4 +156,3 @@ public class MainActivity extends AppCompatActivity
 //        });
 
 
-}
