@@ -31,15 +31,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        btnLogout = (Button) findViewById(R.id.btnLogout);
+//        btnLogout = (Button) findViewById(R.id.btnLogout);
         slide_nametext1 = (TextView) findViewById(R.id.slide_nametext1);
         iv_menu = (ImageView) findViewById(R.id.iv_menu);
         drawerLayout = findViewById(R.id.drawer_layout);
         toolbar= findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
 
+
+        setSupportActionBar(toolbar);
         iv_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,15 +51,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-                Toast.makeText( getApplicationContext(), "로그아웃", Toast.LENGTH_SHORT ).show();
-            }
-        });
+//        btnLogout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+//                startActivity(intent);
+//                Toast.makeText( getApplicationContext(), "로그아웃", Toast.LENGTH_SHORT ).show();
+//            }
+//        });
 
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_menu,menu);
+        return false;
     }
 }
