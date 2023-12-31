@@ -31,7 +31,10 @@ android {
 }
 
 dependencies {
-
+    implementation('com.navercorp.nid:oauth:5.1.1') {
+        exclude group: 'com.navercorp.nid', module: 'oauth-jdk8'
+    }
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'

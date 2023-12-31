@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,30 +19,74 @@ import com.example.eybrow.LodingActivity;
 import com.example.eybrow.MainActivity;
 import com.example.eybrow.R;
 import com.example.eybrow.server.LoginRequest;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 
 import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
     EditText idText, passwordText;
     Button Btn_login;
-    TextView Btn_register,Btn_IDPWfind,nameText;
+    TextView Btn_register, Btn_IDPWfind, nameText;
     private AlertDialog dialog;
 
-
+    private GoogleSignInClient mGoogleSignInClient;
+    private static final int RC_SIGN_IN = 9001;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
 
         idText = (EditText) findViewById(R.id.idText);
         passwordText = (EditText) findViewById(R.id.passwordText);
-        nameText = (TextView) findViewById(R.id.nameText);
+//        nameText = (TextView) findViewById(R.id.nameText);
         Btn_login = (Button) findViewById(R.id.Btn_login);
-        Btn_register = (TextView)findViewById(R.id.Btn_register);
-        Btn_IDPWfind = (TextView)findViewById(R.id.Btn_IDPWfind);
+        Btn_register = (TextView) findViewById(R.id.Btn_register);
+        Btn_IDPWfind = (TextView) findViewById(R.id.Btn_IDPWfind);
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
 
-        Intent intent = new Intent(this, LodingActivity.class);
+        ImageView googleSignInButton = findViewById(R.id.google);
+        googleSignInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signIn();
+            }
+        });
+    }
+
+    private void signIn() {
+        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+        @Override
+        public void onActivityResult(int requestCode, int resultCode, Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
+
+            // Google 로그인 인텐트의 결과입니다.
+            if (requestCode == RC_SIGN_IN) {
+                Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                handleSignInResult(task);
+            }
+        }
+
+        private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
+            try {
+                GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+                // 로그인 성공, 사용자 정보를 사용하여 앱의 로그인 로직을 처리합니다.
+            } catch (ApiException e) {
+                // 로그인 실패 처리
+            }
+
+    Intent intent = new Intent(this, LodingActivity.class);
         startActivity(intent); //로딩
 
 
